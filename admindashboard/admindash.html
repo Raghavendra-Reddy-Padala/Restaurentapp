@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <h2>Admin Panel</h2>
+            <ul>
+                <li><a href="#menu-management">Menu Management</a></li>
+                <li><a href="#reservation-management">Reservation Management</a></li>
+                <li><a href="#sales-overview">Sales Overview</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <h1>Dashboard</h1>
+            </header>
+
+            <!-- Menu Management -->
+            <section id="menu-management" class="card">
+                <h2>Menu Management</h2>
+                <form id="add-item-form">
+                    <div class="form-group">
+                        <label for="item-name">Item Name:</label>
+                        <input type="text" id="item-name" placeholder="Enter item name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="item-price">Price:</label>
+                        <input type="number" id="item-price" placeholder="Enter price" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="item-category">Category:</label>
+                        <select id="item-category" required>
+                            <option value="veg">Veg</option>
+                            <option value="non-veg">Non-Veg</option>
+                            <option value="fast-food">Fast Food</option>
+                            <option value="bakery">Bakery</option>
+                            <option value="south-indian">South Indian</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary">Add Item</button>
+                </form>
+
+                <h3>Current Menu Items</h3>
+                <ul id="menu-list" class="item-list">
+                    <!-- Menu items dynamically added here -->
+                </ul>
+            </section>
+
+            <!-- Reservation Management -->
+            <section id="reservation-management" class="card">
+                <h2>Reservation Management</h2>
+                <ul id="reservation-list" class="reservation-list">
+                    <!-- Dynamic reservations -->
+                    <li>
+                        <span>John Doe - Table 1, 7 PM</span>
+                        <button class="btn-approve" onclick="approveReservation(this)">Approve</button>
+                        <button class="btn-decline" onclick="declineReservation(this)">Decline</button>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Sales Overview -->
+            <section id="sales-overview" class="card">
+                <h2>Sales Overview</h2>
+                <p>Total Sales: <span id="total-sales" class="highlight">$0</span></p>
+                <p>Popular Item: <span id="popular-item" class="highlight">N/A</span></p>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const menuList = document.getElementById('menu-list');
+        document.getElementById('add-item-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('item-name').value;
+            const price = document.getElementById('item-price').value;
+            const category = document.getElementById('item-category').value;
+
+            const newItem = document.createElement('li');
+            newItem.innerHTML = `${name} - $${price} (${category}) <button class="btn-delete" onclick="this.parentElement.remove()">Delete</button>`;
+            menuList.appendChild(newItem);
+        });
+
+        function approveReservation(button) {
+            button.parentElement.classList.add('approved');
+            button.parentElement.querySelector('.btn-decline').remove();
+            button.remove();
+        }
+
+        function declineReservation(button) {
+            button.parentElement.classList.add('declined');
+            button.parentElement.querySelector('.btn-approve').remove();
+            button.remove();
+        }
+    </script>
+</body>
+</html>
