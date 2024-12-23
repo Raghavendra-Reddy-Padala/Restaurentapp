@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant App</title>
+    <link rel="stylesheet" href="appstyle.css">
+</head>
+<body>
+    <header>
+        <h1>Food feast</h1>
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#reservation">Reservation</a></li>
+                <li><a href="#cart">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="loading" class="loading-spinner" style="display: none;">Loading...</div>
+        
+        <!-- Menu Section -->
+        <section id="menu">
+            <h2>Our Menu</h2>
+    
+            <!-- Category Tabs -->
+            <div class="categories">
+                <button class="active">All</button>
+                <button>Veg</button>
+                <button>Non-Veg</button>
+                <button>Fast Food</button>
+                <button>Bakery</button>
+                <button>South Indian</button>
+            </div>
+    
+            <!-- Menu Items -->
+            <div class="menu-container" id="menu-container">
+                <!-- Items will be dynamically loaded here -->
+            </div>
+        </section>
+
+        <section id="reservation">
+            <h2>Make a Reservation</h2>
+            <form id="reservation-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+
+                <label for="contact">Contact:</label>
+                <input type="text" id="contact" required>
+
+                <label for="date">Date:</label>
+                <input type="date" id="date" required>
+
+                <label for="time">Time:</label>
+                <input type="time" id="time" required>
+
+                <label for="table">Table:</label>
+                <select id="table" required>
+                    <option value="1">Table 1</option>
+                    <option value="2">Table 2</option>
+                    <option value="3">Table 3</option>
+                </select>
+
+                <button type="submit">Reserve Now</button>
+            </form>
+        </section>
+
+        <!-- Cart Section -->
+        <section id="cart">
+            <h2>Your Cart</h2>
+            <ul id="cart-items">
+                <!-- Items will be dynamically added here -->
+            </ul>
+            <p id="total-price">Total: $0</p>
+            <button id="checkout-button">Checkout</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Food Feast. All rights reserved.</p>
+    </footer>
+
+    <script type="module"  src="services/api.js"></script>
+    <script type="module"  src="script.js"></script>
+</body>
+</html>

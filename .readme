@@ -1,0 +1,17 @@
+A simple web applcation used for restarurents to manage their menu items book tables and view orders.
+#Technologies used
+-HTML
+-CSS
+-JavaScript
+
+A admindashboard is also available for the restaurant owner to manage the menu items and orders.
+#technologies used
+-HTML
+-CSS
+-JavaScript
+
+Backend
+created a backed with the following techstacks 
+-Node.js
+-Express.js
+-MongoDB
