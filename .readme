@@ -15,3 +15,9 @@ created a backed with the following techstacks
 -Node.js
 -Express.js
 -MongoDB
+
+.env{
+    JWT_SECRET
+    MONGODB_URI
+    PORT
+}
