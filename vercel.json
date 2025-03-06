@@ -1,6 +1,6 @@
 {
     "rewrites": [
-      { "source": "/(.*)", "destination": "/frontend/restaurent.html" }
+      { "source": "/", "destination": "/frontend/restaurent.html" }
     ]
   }
   
