@@ -1,6 +1,0 @@
-{
-    "rewrites": [
-      { "source": "/", "destination": "/public\frontend\restaurent.html" }
-    ]
-  }
-  
